@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #000;
+  display: flex;
+  height: 100vh;
+}
+
+.labelText {
+  font-family: sans-serif;
+  font-size: 1rem;
+  height: 1rem;
+}
+
+main {
+  background-color: #f6f6f6;
+  width: 100%;
+  flex-direction: column;
+  margin: 1rem 0;
+  padding: 4% 4% 10%;
+  justify-content: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.toDoList {
+  box-shadow: 0 1px 10px #e3e3e3;
+}
+
+.title {
+  flex-direction: row;
+  align-items: center;
+  font-size: 0.6rem;
+  justify-content: space-between;
+}
+
+.addTasks {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.addTasks label {
+  width: 100%;
+}
+
+.textArea {
+  border: none !important;
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+  overflow: hidden;
+  resize: none;
+  font-family: sans-serif;
+  font-size: 1rem;
+  height: 1rem;
+}
+
+#addTask,
+.inputHolder,
+.taskText,
+.newTaskText {
+  border: 0;
+  width: 100%;
+  outline: none;
+}
+
+.newTaskText {
+  background-color: inherit;
+}
+
+#addTask::placeholder {
+  font-style: italic;
+}
+
+#addTask::placeholder,
+.clearAll,
+i {
+  color: #b5b5b5;
+}
+
+.task {
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title,
+.addTasks,
+.task {
+  padding: 1rem;
+  background-color: #fff;
+  border-top: 2px solid #ececec;
+}
+
+.move {
+  cursor: move;
+}
+
+.inputHolder {
+  gap: 1rem;
+}
+
+.clearAll {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #f6f6f6;
+  border: 0;
+  border-top: 2px solid #ececec;
+  border-bottom: 2px solid #ececec;
+  cursor: pointer;
+}
+
+i {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.task i {
+  padding: 0 0.4rem;
+}
+
+i:hover:not(.move) {
+  color: #000;
+  cursor: pointer;
+}
+
+.task .hidden {
+  display: none;
+}
+
+.custom-checkbox {
+  display: inline-block;
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  border: 1px solid #000;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.checkmark::before {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.custom-checkbox:hover input ~ .checkmark {
+  border-color: #666;
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: transparent;
+  border-color: #000;
+}
+
+.custom-checkbox input:checked ~ .checkmark::before {
+  display: block;
+}
+
+.view,
+.view .taskText {
+  width: 100%;
+}
+
+.view {
+  display: flex;
+  z-index: 2;
+}
+
+.lineThrough {
+  text-decoration: line-through;
+}
+
+.dragging {
+  background-color: blue;
+  color: white;
+  opacity: 1;
+}
+
+[draggable="true"] {
+  /*
+ To prevent user selecting inside the drag source
+*/
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
