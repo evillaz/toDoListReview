@@ -62,10 +62,9 @@ const loadToDoList = () => {
   }
   toDoList.toDoTasks = toDoList.toDoTasks.sort((a, b) => a.index - b.index);
   localStorage.setItem('toDoList', JSON.stringify(toDoList.toDoTasks));
-  const arrayLength = toDoList.toDoTasks.length;
-  for (let i = 0; i < arrayLength; i += 1) {
-    setToDoList(toDoList.toDoTasks[i]);
-  }
+  toDoList.toDoTasks.forEach((task) => {
+    setToDoList(task);
+  });
   list.appendChild(setClearAll());
   const checkBoxes = document.querySelectorAll('.checkBox');
   checkBoxes.forEach((check) => {
